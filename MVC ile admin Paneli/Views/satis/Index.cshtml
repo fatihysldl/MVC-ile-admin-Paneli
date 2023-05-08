@@ -1,0 +1,34 @@
+﻿@using MVC_ile_admin_Paneli.Models.entity
+@model List<tblSatis>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Satışlar</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Satış Id</th>
+        <th>Ürün</th>
+        <th>Personel</th>
+        <th>Müşteri</th>
+        <th>Fiyat</th>
+        <th>Tarih</th>
+    </tr>
+
+    <tbody>
+        @foreach (var satis in Model)
+        {
+            <tr>
+                <td>@satis.satisId</td>
+                <td>@satis.tblUrunler.urunAd</td>
+                <td>@satis.tblPersonel.personelAd @satis.tblPersonel.personelSoyad</td>
+                <td>@satis.tblMusteri.musteriAd @satis.tblMusteri.musterisSoyad</td>
+                <td>@satis.fiyat</td>
+                <td>@satis.tarih</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/satis/SatisSayfasi" class="btn btn-primary">Satış Yap</a>

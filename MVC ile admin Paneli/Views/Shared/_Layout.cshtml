@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Navbar Örneği</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/95f9bdf4d9.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="
+https://cdn.jsdelivr.net/npm/flat-icons@1.0.0/creative.min.css
+" rel="stylesheet">
+    <link href="~/css.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar bg-info">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Mağaza Admin Paneli</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/AnaSayfa/Index">Anasayfa</a></li>
+                    <li><a href="/kategori/Index">Kategoriler</a></li>
+                    <li><a href="/urun/Index">Ürünler</a></li>
+                    <li><a href="/musteri/Index">Müşteri</a></li>
+                    <li><a href="/satis/Index">Satış</a></li>
+                    <li><a href="/istatistik/Index">İstatistikler</a></li>
+                    <li><a href="/admin/Index">Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>

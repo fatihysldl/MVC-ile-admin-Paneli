@@ -1,0 +1,18 @@
+﻿@model MVC_ile_admin_Paneli.Models.entity.tblKategori
+@{
+    ViewBag.Title = "kategoriEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>kategoriEkle</h2>
+
+@using (Html.BeginForm("kategoriEkle", "kategori", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Kategori Ad</label>
+        @Html.TextBoxFor(x => x.kategoriAd, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(x => x.kategoriId)
+
+    <button class="btn btn-primary">Kategori Ekle</button>
+}

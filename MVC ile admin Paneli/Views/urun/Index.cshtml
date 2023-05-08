@@ -1,0 +1,53 @@
+﻿@using MVC_ile_admin_Paneli.Models.entity
+@model List<tblUrunler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ürünler</h2>
+@using (Html.BeginForm("Index", "urun", FormMethod.Get))
+{
+    <label>Ara</label>
+    <div>
+        @Html.TextBox("p", null, new { @class = "form-control", @style = "width:200px;display:inline-block;margin-right:10px " })
+        <input type="submit" value="Ara" class="btn btn-primary" style="display:inline" />
+    </div>
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün Id</th>
+        <th>Ürün Ad</th>
+        <th>Ürün Marka</th>
+        <th>Ürün Toplam Stok</th>
+        <th>Ürün Kalan Stok</th>
+        <th>Ürün Alış Fiyat</th>
+        <th>Ürün Satış Fiyat</th>
+        <th>Ürün Kategori</th>
+        <th>Ürün Güncelle</th>
+        <th>Ürün Sil</th>
+    </tr>
+
+    <tbody>
+        @foreach (var urun in Model)
+        {
+            <tr>
+                <td>@urun.urunId</td>
+                <td>@urun.urunAd</td>
+                <td>@urun.urunMarka</td>
+                <td>@urun.toplamStok</td>
+                <td>@urun.kalanStok</td>
+                <td>@urun.urunAlisFiyat</td>
+                <td>@urun.urunSatisFiyat</td>
+                <td>@urun.tblKategori.kategoriAd</td>
+                <td><a href="/urun/UrunGuncelleSayfasi/@urun.urunId" class="btn btn-success">Güncelle</a></td>
+                <td><a href="/urun/UrunSil/@urun.urunId" class="btn btn-warning">Sil</a></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<a href="/urun/urunEkle" class="btn btn-primary">Ürün Ekle</a>
+
+

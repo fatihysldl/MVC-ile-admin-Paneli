@@ -1,0 +1,42 @@
+﻿@using MVC_ile_admin_Paneli.Models.entity
+@model List<tblKategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kategoriler</h2>
+@using (Html.BeginForm("Index", "kategori", FormMethod.Get))
+{
+    <label>Ara</label>
+    <div>
+        @Html.TextBox("p", null, new { @class = "form-control", @style = "width:200px;display:inline-block;margin-right:10px " })
+        <input type="submit" value="Ara" class="btn btn-primary" style="display:inline" />
+    </div>
+
+
+
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Kategori Id</th>
+        <th>Kategori Ad</th>
+        <th>Kategori Güncelle</th>
+        <th>Kategori Sil</th>
+    </tr>
+
+    <tbody>
+        @foreach (var ktgr in Model)
+        {
+            <tr>
+                <td>@ktgr.kategoriId</td>
+                <td>@ktgr.kategoriAd</td>
+                <td><a href="/kategori/kategoriGuncelleSayfasi/@ktgr.kategoriId" class="btn btn-success">Güncelle</a></td>
+                <td><a href="/kategori/kategoriSil/@ktgr.kategoriId" class="btn btn-warning">Sil</a></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<a href="/kategori/kategoriEkle" class="btn btn-primary">Kategori Ekle</a>

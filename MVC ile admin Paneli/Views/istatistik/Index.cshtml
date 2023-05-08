@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mağaza İstatistikleri</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="display: flex; align-items: center; color: black;  ">
+                            <i class="fas fa-mobile-alt" style="font-size: 24px; margin-right: 10px;"></i>
+                            <span style="display: inline-block;">iPhone Stoğu</span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="@ViewBag.KalanStok" aria-valuemin="0" aria-valuemax="@ViewBag.ToplamStok" style="width: @(ViewBag.KalanStok * 100 / ViewBag.ToplamStok)%;">
+                            @ViewBag.KalanStok
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="display: flex; align-items: center; color: black;  ">
+                        <i class="ri-money-dollar-circle-line" style="margin-right:10px;"></i>
+                        <span style="display: inline-block;">Toplam Satış</span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <i class="fas fa-badge-dollar"></i>
+                    <p style="font-size:30px; text-align:center;"> @ViewBag.satisSayisi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="display: flex; align-items: center; color: black;  ">
+                        <i class="ri-user-add-fill" style="margin-right:10px;"></i>
+                        <span style="display: inline-block;">Toplam Müşteri Sayısı</span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <p style="font-size:30px; text-align:center;"> @ViewBag.musteriSayisi</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="display: flex; align-items: center; color: black;  ">
+                        <i class="ri-wallet-3-line" style="margin-right:10px;"></i>
+                        <span style="display: inline-block;">Müşterilerin Toplam Bakiyesi</span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <p style="font-size:30px; text-align:center;"> @ViewBag.toplamBakiye TL</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="display: flex; align-items: center; color: black;  ">
+                        <i class="ri-admin-line" style="margin-right:10px;"></i>
+                        <span style="display: inline-block;">Admin Sayısı</span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <p style="font-size:30px; text-align:center;"> @ViewBag.AdminSayisi</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="display: flex; align-items: center; color: black;  ">
+                        <i class="ri-menu-line" style="margin-right:10px;"></i>
+                        <span style="display: inline-block;">Kategori Sayısı</span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <p style="font-size:30px; text-align:center;"> @ViewBag.kategoriSayisi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="display: flex; align-items: center; color: black;  ">
+                        <i class="ri-product-hunt-line" style="margin-right:10px;"></i>
+                        <span style="display: inline-block;">Ürün Çeşidi Sayısı</span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <p style="font-size:30px; text-align:center;"> @ViewBag.urunSayisi</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="display: flex; align-items: center; color: black;  ">
+                        <i class="ri-eraser-fill" style="margin-right:10px;"></i>
+                        <span style="display: inline-block;">Silinmemiş Ürün Sayısı (Durumu True olan, pasif hale gelmemiş)</span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <p style="font-size:30px; text-align:center;"> @ViewBag.durumuTrueOlanUrunler</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<i class="fa-thin fa-mobile-signal"></i>

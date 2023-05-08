@@ -1,0 +1,42 @@
+﻿@model MVC_ile_admin_Paneli.Models.entity.tblUrunler
+@{
+    ViewBag.Title = "urunEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>urunEkle</h2>
+
+@using (Html.BeginForm("urunEkle", "urun", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Ürün Ad</label>
+        @Html.TextBoxFor(x => x.urunAd, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Ürün Marka</label>
+        @Html.TextBoxFor(x => x.urunMarka, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Ürün Toplam Stok</label>
+        @Html.TextBoxFor(x => x.toplamStok, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Ürün Kalan Stok</label>
+        @Html.TextBoxFor(x => x.kalanStok, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Ürün Alis Fiyat</label>
+        @Html.TextBoxFor(x => x.urunAlisFiyat, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Ürün Satis Fiyat</label>
+        @Html.TextBoxFor(x => x.urunSatisFiyat, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Ürün Kategori</label>
+        @Html.DropDownListFor(x => x.urunKategori, (List<SelectListItem>)ViewBag.kategoriler, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(x => x.urunId)
+
+    <button class="btn btn-primary">Ürün Ekle</button>
+}

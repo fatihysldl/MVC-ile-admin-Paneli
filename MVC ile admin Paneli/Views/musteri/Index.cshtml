@@ -1,0 +1,40 @@
+﻿@using MVC_ile_admin_Paneli.Models.entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<tblMusteri>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Müşteriler</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Müşteri Id</th>
+        <th>Müşteri Ad</th>
+        <th>Müşteri Soyad</th>
+        <th>Müşteri Şehir</th>
+        <th>Müşteri Bakiye</th>
+        <th>Müşteri Güncelle</th>
+        <th>Müşteri Sil</th>
+    </tr>
+
+    <tbody>
+        @foreach (var musteri in Model)
+        {
+            <tr>
+                <td>@musteri.musteriId</td>
+                <td>@musteri.musteriAd</td>
+                <td>@musteri.musterisSoyad</td>
+                <td>@musteri.musteriSehir</td>
+                <td>@musteri.musteriBakiye</td>
+                <td><a href="/musteri/musteriGuncelleSayfasi/@musteri.musteriId" class="btn btn-success">Güncelle</a></td>
+                <td><a href="/musteri/MusteriSil/@musteri.musteriId" class="btn btn-warning">Sil</a></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new {sayfa}))
+<a href="/musteri/musteriEkle" class="btn btn-primary">Müşteri Ekle</a>

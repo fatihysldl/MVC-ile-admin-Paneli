@@ -1,0 +1,30 @@
+﻿@model MVC_ile_admin_Paneli.Models.entity.tblMusteri
+@{
+    ViewBag.Title = "musteriEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>musteriEkle</h2>
+
+@using (Html.BeginForm("musteriEkle", "musteri", FormMethod.Post))
+ {
+    <div class="form-group">
+        <label>Müşteri Ad</label>
+        @Html.TextBoxFor(x => x.musteriAd, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Müşteri Soyad</label>
+        @Html.TextBoxFor(x => x.musterisSoyad, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>müşteri şehir</label>
+        @Html.TextBoxFor(x => x.musteriSehir, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>müşteri Bakiye</label>
+        @Html.TextBoxFor(x => x.musteriBakiye, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(x => x.musteriId)
+    <button class="btn btn-primary">Müşteri Güncelle</button>
+
+ }

@@ -1,0 +1,44 @@
+﻿@model MVC_ile_admin_Paneli.Models.entity.tblAdminGiris
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Admin Kaydı</h2>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Yeni Admin Kaydı</button>
+<br /> <br />
+@Html.ValidationMessageFor(x => x.kullaniciAdi, "", new { @style = "color:red;" })
+<br />
+@Html.ValidationMessageFor(x => x.adminSifre, "", new { @style = "color:red;" })
+<div class="modal" id="Modal1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2 class="modal-title">Admin Ekle</h2>
+            </div>
+
+            <form method="post" action="/admin/adminEkle">
+
+                <div class="modal-body">
+                    <label>Kullanıcı Adı</label>
+                    @Html.TextBoxFor(m => m.kullaniciAdi, new { @class = "form-control" })
+                    <br />
+                    <label>Şifre</label>
+                    @Html.TextBoxFor(m => m.adminSifre, new { @class = "form-control" })
+                    <br />
+                    <button type="submit" class="btn btn-info">Admin Kaydet</button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Vazgeç</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
